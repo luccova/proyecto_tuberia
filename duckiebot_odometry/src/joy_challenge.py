@@ -20,7 +20,7 @@ class Template(object):
         self.twist = WheelsCmdStamped()
 	self.time = time()
 	self.buttons = [0,0,0,0]
-
+	self.tiempoactual = 0
     def callback(self,msg):
         self.buttons[0] = msg.buttons[2]
         self.buttons[1] = msg.buttons[0]
@@ -44,17 +44,20 @@ class Template(object):
     def tiempo(self,tiempo_a=0):
 	time_current = time()
 	msg = Float32()
+	t0 = 0
 	while self.buttons[1]==1:
-		t=time() - time_current
-		#tiempo_a+=t
+		t0=time() - time_current
+		t=self.tiempoactual + t0
 		#print(t)
 		msg.data= t*0.3468 + 0.0745
 		odometria = t*0.3468 + 0.0745
-		#print(tiempo_a)
+		print(odometria)
 		#if self.buttons[1] == 0:
 		#	break
-		self.distanciaX.publish(msg)	        
-
+		self.distanciaX.publish(msg)
+	self.tiempoactual += t0
+	if self.buttons[2] ==1:
+		self.tiempoactual = 0
 
 
 def main():
