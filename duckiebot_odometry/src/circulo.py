@@ -50,7 +50,7 @@ def lidar_data_callback(msg):
     outliers = find_points_outside_circle(points, estimated_circle, error_threshold=0.01)
 
     # Mostrar el resultado
-    print("Parametros del circulo estimado:", estimated_circle)
+    # print("Parametros del circulo estimado:", estimated_circle) #no queremos mostrar esto por ahora, se puede descomentar
     print("Puntos fuera del circulo con un error de 1 cm:", outliers)
 
     # Trazar los datos
