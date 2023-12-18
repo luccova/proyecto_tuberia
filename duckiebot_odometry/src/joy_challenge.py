@@ -27,18 +27,10 @@ class Template(object):
         self.buttons[2] = msg.buttons[1]
 	self.buttons[3] = msg.buttons[3]
 
-       # print(self.buttons[0], self.buttons[1], self.buttons[2], self.buttons[3])
-       # self.twist.omega = 0
-	#if z!=1 and p!=1:
-        self.twist.vel_right = self.buttons[1]-0.05-self.buttons[0]
-        self.twist.vel_left = self.buttons[1] - self.buttons[0]
-	###if x!=1 and p!=1:
-	#	self.twist.vel_right = z*0.7 - 0.05
-	#	self.twist.vel_left = z*0.7
-	#if x!=1 and z!=1:
-	#	self.twist.vel_right = p*0.85 - 0.05
-	#	self.twist.vel_left = p*0.85
-	
+
+        self.twist.vel_right = self.buttons[1]-0.05-self.buttons[0]	#velocidad de rueda derecha
+        self.twist.vel_left = self.buttons[1] - self.buttons[0]		#velocidad de rueda izquierda
+
         self.publi.publish(self.twist.header,self.twist.vel_left, self.twist.vel_right)
 	
     def tiempo(self,tiempo_a=0):
