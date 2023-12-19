@@ -69,27 +69,7 @@ if __name__ == "__main__":
     print("Parametros del circulo estimado:", estimated_circle)
     print("Puntos fuera del circulo con un error de 1 cm:", outliers)
 
-    """# Trazar los datos
-    plt.figure(figsize=(8, 8))
 
-    # Trazar los puntos de la nube de puntos
-    plt.scatter(points[:, 0], points[:, 1], label='Puntos LIDAR', color='blue', alpha=0.5)
-
-    # Trazar el circulo estimado
-    circle = plt.Circle((estimated_circle[0], estimated_circle[1]), estimated_circle[2], edgecolor='r', facecolor='none', label='Circulo estimado')
-    plt.gca().add_patch(circle)
-
-    # Trazar los puntos fuera del circulo
-    plt.scatter(outliers[:, 0], outliers[:, 1], label='Puntos fuera del circulo', color='red', marker='x')
-
-    # Configuracion del grafico
-    plt.title('Estimacion del circulo y puntos fuera del circulo')
-    plt.xlabel('Coordenada X')
-    plt.ylabel('Coordenada Y')
-    plt.legend()
-    plt.grid(True)
-    plt.show()
-    """
 if __name__ == "__main__":
     # Especificar el nombre del archivo rosbag
     bag_filename = "2023-12-12-21-01-18.bag"
